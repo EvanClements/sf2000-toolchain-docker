@@ -9,11 +9,11 @@ mkdir -p "$TOOLCHAIN_PATH"
 if [ -f "./$TOOLCHAIN_TAR" ]; then
 	cp "./$TOOLCHAIN_TAR" "$TOOLCHAIN_PATH"
 	cd "$TOOLCHAIN_PATH"
-	echo "extracting local toolchain ($TOOLCHAIN_ARCH)"
+	echo "extracting local toolchain"
 else
 	cd "$TOOLCHAIN_PATH"
 	wget "$TOOLCHAIN_URL"
-	echo "extracting remote toolchain $TOOLCHAIN_VERSION ($TOOLCHAIN_ARCH)"
+	echo "extracting remote toolchain $TOOLCHAIN_TAR"
 fi
 tar xf "./$TOOLCHAIN_TAR"
 rm -rf "./$TOOLCHAIN_TAR"
