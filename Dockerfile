@@ -5,22 +5,49 @@ ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get -y update && apt-get -y install \
-	bc \
-    build-essential \
-    bzip2 \
-	bzr \
-	cmake \
-	cmake-curses-gui \
-	cpio \
-	git \
-	libncurses5-dev \
-	locales \
-	make \
-	rsync \
-	scons \
-	tree \
-	unzip \
 	wget \
+	git \
+	gcc \
+	flex \
+	bison \
+	gperf \
+	make \
+	python \
+	unzip \
+	unrar-free \
+	dos2unix \
+	swig \
+	python-dev \
+	python3-dev \
+	python3-pip \
+	clang-format \
+	python3 \
+	python3-pip \
+	python3-setuptools \
+	python3-wheel \
+	ninja-build \
+	rename \
+	gdb \
+	apache2 \
+	re2c \
+	ctags \
+	lzip \
+	libncurses-dev \
+	tree \
+	pkg-config \
+	cmake \
+	python-pip \
+	automake \
+	lzop \
+	doxygen \
+	graphviz \
+	libssl-dev \
+	genromfs \
+	lzma \
+	mtools \
+	mtd-tools \
+	rsync \
+  && pip3 install fdt \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /root/workspace

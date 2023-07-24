@@ -1,4 +1,4 @@
-# Toolchain Docker image
+# SF2000 Toolchain Docker image
 
 Based on the [Trimui toolchain Docker image](https://git.crowdedwood.com/trimui-toolchain/) by neonloop.
 

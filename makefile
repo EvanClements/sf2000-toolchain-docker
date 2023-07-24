@@ -1,7 +1,7 @@
 .PHONY: shell
 .PHONY: clean
 	
-TOOLCHAIN_NAME=trimui-toolchain
+TOOLCHAIN_NAME=sf2000-toolchain
 WORKSPACE_DIR := $(shell pwd)/workspace
 
 CONTAINER_NAME=$(shell docker ps -f "ancestor=$(TOOLCHAIN_NAME)" --format "{{.Names}}")
