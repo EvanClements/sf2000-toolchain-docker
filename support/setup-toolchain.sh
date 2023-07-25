@@ -1,5 +1,6 @@
 #! /bin/sh
 
+# Set variables to assist with setting up the toolchain
 TOOLCHAIN_VERSION="2020.06-01"
 TOOLCHAIN_TAR="Codescape.GNU.Tools.Package.$TOOLCHAIN_VERSION.for.MIPS.MTI.Bare.Metal.CentOS-6.x86_64.tar.gz"
 TOOLCHAIN_PATH=/opt
@@ -16,6 +17,19 @@ else
 	echo "extracting remote toolchain $TOOLCHAIN_TAR"
 fi
 tar xf "./$TOOLCHAIN_TAR"
-rm -rf "./$TOOLCHAIN_TAR"
 
-export TC_VERSION=$TOOLCHAIN_VERSION
+# This will identify the path the toolchain was originally installed to
+if [ -f "$TOOLCHAIN_PATH/mips-mti-elf/$TOOLCHAIN_VERSION" ]; then
+	OLDPATH="$TOOLCHAIN_PATH/mips-mti-elf"
+ elif [ -f "$TOOLCHAIN_PATH/mips32-mti-elf/$TOOLCHAIN_VERSION" ]; then
+	OLDPATH="$TOOLCHAIN_PATH/mips32-mti-elf"
+fi
+
+# This will move the toolchain to /opt/sf2000-toolchain to simplify the toolchain
+# making it so that no matter what the toolchain version is, the rest of the container and SDK
+# doesn't need to be changed
+mv "$OLDPATH/$TOOLCHAIN_VERSION" "$TOOLCHAIN_PATH/sf2000-toolchain"
+
+# Clean up, clean up, everybody clean up
+rm -rf "$OLDPATH"
+rm -rf "./$TOOLCHAIN_TAR"
