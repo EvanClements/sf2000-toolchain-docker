@@ -17,11 +17,12 @@ RUN apt-get -y update && apt-get -y install \
 	unrar-free \
 	dos2unix \
 	swig \
-	python-dev \
+	python3 \
+ 	python-is-python3 \
+ 	python-dev-is-python3 \
 	python3-dev \
 	python3-pip \
 	clang-format \
-	python3 \
 	python3-pip \
 	python3-setuptools \
 	python3-wheel \
@@ -30,13 +31,12 @@ RUN apt-get -y update && apt-get -y install \
 	gdb \
 	apache2 \
 	re2c \
-	ctags \
+	universal-ctags \
 	lzip \
 	libncurses-dev \
 	tree \
 	pkg-config \
 	cmake \
-	python-pip \
 	automake \
 	lzop \
 	doxygen \
@@ -47,11 +47,12 @@ RUN apt-get -y update && apt-get -y install \
 	mtools \
 	mtd-tools \
 	rsync \
-  && pip3 install fdt \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /root/workspace
 WORKDIR /root
+
+RUN pip3 install --break-system-packages -y fdt
 
 COPY support .
 RUN ./setup-toolchain.sh
