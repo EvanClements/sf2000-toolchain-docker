@@ -1,10 +1,15 @@
-FROM debian:buster-slim
+FROM debian:bookworm-slim
 ENV DEBIAN_FRONTEND noninteractive
 
+# Set timezone for OS in container
 ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-RUN apt-get -y update && apt-get -y install \
+# Clean and update source
+RUN apt-get -y clean && apt-get -y update
+
+# Install dependencies and things
+RUN apt-get -y install \
 	wget \
 	git \
 	gcc \
@@ -12,7 +17,6 @@ RUN apt-get -y update && apt-get -y install \
 	bison \
 	gperf \
 	make \
-	python \
 	unzip \
 	unrar-free \
 	dos2unix \
@@ -26,6 +30,12 @@ RUN apt-get -y update && apt-get -y install \
 	python3-pip \
 	python3-setuptools \
 	python3-wheel \
+	python-is-python3 \
+	2to3 \
+	python3-dev \
+	python-dev-is-python3 \
+	universal-ctags \
+	exuberant-ctags \
 	ninja-build \
 	rename \
 	gdb \
@@ -49,10 +59,16 @@ RUN apt-get -y update && apt-get -y install \
 	rsync \
   && rm -rf /var/lib/apt/lists/*
 
+# install FDT PIP package
+RUN pip3 install --break-system-packages fdt
+
+# install Micro Text Editor
+RUN wget -O- https://getmic.ro | bash \
+	&& mv micro /usr/bin
+
+# Create workspace
 RUN mkdir -p /root/workspace
 WORKDIR /root
-
-RUN pip3 install --break-system-packages -y fdt
 
 COPY support .
 RUN ./setup-toolchain.sh
