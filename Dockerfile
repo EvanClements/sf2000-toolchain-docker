@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND noninteractive
 
 # Set timezone for OS in container

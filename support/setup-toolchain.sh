@@ -1,7 +1,7 @@
 #! /bin/sh
 
 # Set variables to assist with setting up the toolchain
-TOOLCHAIN_VERSION="2020.06-01"
+TOOLCHAIN_VERSION="2019.09-03"
 TOOLCHAIN_TAR="Codescape.GNU.Tools.Package.$TOOLCHAIN_VERSION.for.MIPS.MTI.Bare.Metal.CentOS-6.x86_64.tar.gz"
 TOOLCHAIN_PATH=/opt
 TOOLCHAIN_URL="https://codescape.mips.com/components/toolchain/$TOOLCHAIN_VERSION/$TOOLCHAIN_TAR"
