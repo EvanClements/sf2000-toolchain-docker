@@ -17,36 +17,31 @@ RUN apt-get -y install \
 	bison \
 	gperf \
 	make \
+	python \
 	unzip \
-	unrar-free \
+	rar \
 	dos2unix \
 	swig \
-	python3 \
- 	python-is-python3 \
- 	python-dev-is-python3 \
+	python-dev \
 	python3-dev \
 	python3-pip \
 	clang-format \
+	python3 \
 	python3-pip \
 	python3-setuptools \
 	python3-wheel \
-	python-is-python3 \
-	2to3 \
-	python3-dev \
-	python-dev-is-python3 \
-	universal-ctags \
-	exuberant-ctags \
 	ninja-build \
 	rename \
 	gdb \
 	apache2 \
 	re2c \
-	universal-ctags \
+	ctags \
 	lzip \
 	libncurses-dev \
 	tree \
 	pkg-config \
 	cmake \
+	python-pip \
 	automake \
 	lzop \
 	doxygen \
@@ -54,13 +49,14 @@ RUN apt-get -y install \
 	libssl-dev \
 	genromfs \
 	lzma \
+	lzma \
 	mtools \
 	mtd-tools \
-	rsync \
-  && rm -rf /var/lib/apt/lists/*
+	rsync && \
+	rm -rf /var/lib/apt/lists/*
 
 # install FDT PIP package
-RUN pip3 install --break-system-packages fdt
+RUN pip3 install fdt
 
 # install Micro Text Editor
 RUN wget -O- https://getmic.ro | bash \
