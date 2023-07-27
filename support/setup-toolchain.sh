@@ -19,9 +19,9 @@ fi
 tar xf "./$TOOLCHAIN_TAR"
 
 # This will identify the path the toolchain was originally installed to
-if [ -f "$TOOLCHAIN_PATH/mips-mti-elf/$TOOLCHAIN_VERSION" ]; then
+if [ -d "$TOOLCHAIN_PATH/mips-mti-elf/$TOOLCHAIN_VERSION" ]; then
 	OLDPATH="$TOOLCHAIN_PATH/mips-mti-elf"
- elif [ -f "$TOOLCHAIN_PATH/mips32-mti-elf/$TOOLCHAIN_VERSION" ]; then
+ elif [ -d "$TOOLCHAIN_PATH/mips32-mti-elf/$TOOLCHAIN_VERSION" ]; then
 	OLDPATH="$TOOLCHAIN_PATH/mips32-mti-elf"
 fi
 
