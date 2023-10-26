@@ -1,3 +1,4 @@
+#t
 .PHONY: shell
 .PHONY: clean
 	

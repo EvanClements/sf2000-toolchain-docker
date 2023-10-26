@@ -28,8 +28,8 @@ fi
 # This will move the toolchain to /opt/sf2000-toolchain to simplify the toolchain
 # making it so that no matter what the toolchain version is, the rest of the container and SDK
 # doesn't need to be changed
-mv "$OLDPATH/$TOOLCHAIN_VERSION" "$TOOLCHAIN_PATH/sf2000-toolchain"
+# mv "$OLDPATH/$TOOLCHAIN_VERSION" "$TOOLCHAIN_PATH/sf2000-toolchain"
 
 # Clean up, clean up, everybody clean up
-rm -rf "$OLDPATH"
+# rm -rf "$OLDPATH"
 rm -rf "./$TOOLCHAIN_TAR"
